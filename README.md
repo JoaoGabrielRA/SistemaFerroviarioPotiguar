@@ -1,2 +1,2 @@
 # SistemaFerroviarioPotiguar
-Projeto da discipline de Projeto de Engenharia de Software e Banco de Dados
+Projeto da disciplina de Projeto de Engenharia de Software e Banco de Dados
