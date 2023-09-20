@@ -1,0 +1,119 @@
+CASOS DE USO PARA SISTEMA FERROVIÁRIO POTIGUAR
+
+ATOR 1: Cliente
+
+Abrir conta
+Fluxo normal:
+1 - Cliente informa nome
+2 - Cliente informa CPF 
+3 - Cliente informa data de nascimento
+4 - Cliente informa e-mail 
+5 - Sistema abre a conta para o cliente
+
+Extensões:
+2a - Se o CPF for inválido, solicitar novo CPF
+3a - Se for menor de 16 anos, solicitar nova data de nascimento e informar que a data é inválida
+4a - Se o e-mail não for válido, solicitar novo e-mail
+
+Comprar saldo
+Fluxo normal:
+1 - Cliente acessa o sistema
+2 - Cliente define entre um dos valores pré-definidos de saldo
+3 - Cliente define a forma de pagamento (pix, crédito ou débito)
+4 - Sistema efetua a transferência 
+5 - Cliente recebe o comprovante de pagamento em PDF
+6 - Sistema pergunta se o cliente deseja realizar uma nova compra
+
+Extensões:
+3a - Se opção for PIX, Sistema apresenta QR Code 
+3b - Se opção for Cartão de Crédito, o Sistema solicita a inserção dos dados do cartão no aplicativo. Em caso de compra negada, o Sistema deve mostrar ao usuário o motivo.
+3c - Se opção for Cartão de Débito, o Sistema solicita a inserção dos dados do cartão no aplicativo. Em caso de compra negada, o Sistema deve mostrar ao usuário o motivo.
+
+Comprar bilhete
+Fluxo normal:
+1 - Cliente acessa o sistema
+2 - Cliente acessa no sistema o itinerário, as cadeiras disponíveis e o preço da passagem
+3 - Cliente define o itinerário e seleciona cadeiras disponíveis
+4 - Sistema verifica se o saldo na conta é suficiente
+5 - Sistema reduz o saldo do cliente e realiza a compra 
+5 - Cliente recebe o bilhete em PDF
+
+Extensões:
+1a - Se o cliente não estiver cadastrado, o Sistema deve pedir para se cadastrar
+3a - Se no momento que o cliente selecionou o lugar, o mesmo foi adquirido, solicitar que ele escolha outro lugar
+4a - Caso o saldo na conta seja insuficiente para a compra do bilhete, o Sistema deve solicitar uma nova recarga
+5a - Cliente tem a opção de baixar o bilhete
+
+Gerenciar conta
+Fluxo normal:
+1 - O cliente acessa o sistema 
+2 - O cliente acessa no sistema a aba do perfil 
+3 - O cliente tem a opção de editar as informações pessoais
+4 - O cliente tem a opção de excluir sua conta
+ 
+Extensões: 
+4a - Se houver saldo na conta, o cliente é avisado pelo Sistema que perderá o saldo se excluir a conta
+
+ATOR 2: Comissário
+
+Fazer a validação do bilhete do passageiro
+Fluxo normal:
+1 - Passageiro apresenta o bilhete ao comissário
+2 - Comissário verifica se é um bilhete válido 
+
+Extensões: 
+2a - Caso o bilhete não seja válido, o Sistema emite uma notificação para o comissário
+
+ATOR 3: Gerente
+
+Cadastrar comissário
+Fluxo normal:
+1 - O gerente acessa o sistema
+2 - O gerente é direcionado para o painel de controle
+3 - O gerente pesquisa pelo CPF do usuário a ser cadastrado como comissário
+4 - O gerente concede permissão de comissário para usuário
+
+Modificar os horários do itinerário
+Fluxo normal:
+1 - O gerente acessa o sistema
+2 - O gerente é direcionado para o painel de controle
+3 - O gerente verifica os horários dos itinerários
+4 - O gerente define o horário de partida
+
+Modificar o preço (bilhete único) das passagens
+Fluxo normal:
+1 - O gerente acessa o sistema
+2 - O gerente é direcionado para o painel de controle
+3 - O gerente define o preço da passagem
+HISTÓRIAS DE USUÁRIO
+
+1.1 Como um cliente, eu gostaria de me cadastrar no sistema
+Critérios de aceitação:
+1.1.1 Se a idade do cliente for menor de 16, impedir de cadastrar
+1.2 Como um cliente, eu gostaria de colocar saldo na minha conta
+Critérios de aceitação:
+1.2.1 Colocar saldo na minha conta utilizando o PIX
+1.2.2 Colocar saldo na minha conta utilizando o Cartão de Crédito
+1.2.3 Colocar saldo na minha conta utilizando o Cartão de Débito
+
+1.3 Como um cliente, eu gostaria de comprar um bilhete
+Critérios de aceitação:
+1.3.1 Comprar um bilhete reservando um ou mais assentos
+1.3.2 Comprar um bilhete definindo o lugar de desembarque
+
+2. Como um comissário, eu gostaria de autenticar um bilhete
+Critérios de aceitação:
+2.1 Se o bilhete for inválido, informar ao comissário
+
+3.1 Como um gerente, eu gostaria de cadastrar novos comissários
+Critérios de aceitação:
+3.1.1 Cadastrar novos comissários a partir de permissão concedida a usuário cadastrado no Sistema
+
+3.2 Como um gerente, eu gostaria de modificar os horários dos itinerários
+Critérios de aceitação:
+3.2.1 Modificar os horários dos itinerários a partir do horário de partida do trem
+
+3.3 Como um gerente, eu gostaria de poder modificar o preço da passagem
+Critérios de aceitação:
+3.3.1 Se o valor for um número negativo, informar um erro
+
