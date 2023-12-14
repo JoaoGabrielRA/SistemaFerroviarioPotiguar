@@ -1,0 +1,19 @@
+{% extends 'global/base.html' %}
+{% load static %}
+{% block conteudo %}
+
+<main>
+    <div class="position-relative">
+        <img src="{% static 'img/imagemTrem.jpg' %}" style="width:100%; height: 100%; " alt="">
+        
+        <div class="card" style="position: absolute; top:25%; left:40%; width: 24rem;">
+            <div class="card-body">
+              <h2 class="card-title mb-5">Cadastro realizado com sucesso!</h2>
+              <a href="{% url 'login' %}" class="card-link btn btn-success">Faça Login</a>
+            </div>
+          </div>
+          
+    </div>
+</main>
+
+{% endblock conteudo %}
