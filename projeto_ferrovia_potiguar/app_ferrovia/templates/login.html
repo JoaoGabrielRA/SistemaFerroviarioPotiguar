@@ -1,0 +1,24 @@
+{% extends 'global/base.html' %}
+{% block conteudo %}
+<div class="container d-flex justify-content-center pt-5">
+    <form style="width:20rem;" action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="cpf" class="form-label">Cpf</label>
+            <input type="text" class="form-control" id="cpf" aria-describedby="Cpf" name="cpf" placeholder="Digite seu CPF" required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Senha</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="senha" placeholder="Digite sua senha!" required>
+        </div>
+        {% comment %} <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">É Comissário? </label>
+        </div> {% endcomment %}
+        <button type="submit" class="btn btn-primary">Fazer login!</button>
+        {% if erroMsg %}
+        <h3 style="color:red; font-weight: bold;">{{erroMsg}}</h3>
+        {% endif %}
+    </form>
+</div>
+{% endblock conteudo %}

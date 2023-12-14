@@ -1,0 +1,40 @@
+{% extends 'global/base.html' %}
+{% block conteudo %}
+<style>
+    h1,h2,h3{
+        text-align:center;
+    }
+</style>
+<h1>Autenticação de Bilhetes</h1>
+<h3>Comissário: {{ nome }}</h3>
+<div style="display: flex; justify-content:center; align-items:center; flex-direction: column; gap:20px;">
+<div class="card" style="width: 25rem; height: 12rem;">
+    <div class="card-body">
+        <form action="{% url 'validacao' %}" method="POST">
+          {% csrf_token %}
+            <div class="mb-3">
+              <label for="nBilhete" class="form-label">Digite o Número do Bilhete</label>
+              <input type="text" class="form-control" id="nBilhete" name= "nBilhete" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Verificar</button>
+        </form>
+    </div>
+</div>
+<div class="card" style="width: 25rem;">
+  {%if erroMsg %}
+    <h1 style="color: red; font-weight: bold;">{{erroMsg}}</h1>
+  {% endif %}
+  {% if dados %}  
+    <div class="card-body">
+      <h5 class="card-title"></h5>
+      <h5 class="card-title">Bilhete: {{dados.idPassagem}}</h5>
+      <h5 class="card-title">Nome do Comprador: {{nomeUsuario}}</h5>
+      <h5 class="card-title">Data da Viagem: {{dadosViagem.dataViagem}}</h5>
+      <h5 class="card-title">Origem: {{dadosViagem.origem}}</h5>
+      <h5 class="card-title">Destino: {{dadosViagem.destino}}</h5>
+      
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock conteudo %}
