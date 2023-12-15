@@ -1,10 +1,12 @@
 {% extends 'global/base.html' %}
 {% block conteudo %}
+{% load static %}
 <style>
     h1,h2,h3{
         text-align:center;
     }
 </style>
+<img src="{% static 'img/imagemTrem.jpg' %}" style="width:100%; height: 100%;position:absolute;z-index:-10; " alt="">
 <h1>Autenticação de Bilhetes</h1>
 <h3>Comissário: {{ nome }}</h3>
 <div style="display: flex; justify-content:center; align-items:center; flex-direction: column; gap:20px;">
@@ -25,16 +27,20 @@
     <h1 style="color: red; font-weight: bold;">{{erroMsg}}</h1>
   {% endif %}
   {% if dados %}  
-    <div class="card-body">
+    <div class="row card-body">
+      <div class="col-2 d-flex justifu-content-center align-items-center ps-3" style="border-right: 1px solid black">
+        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M96 0C43 0 0 43 0 96V352c0 48 35.2 87.7 81.1 94.9l-46 46C28.1 499.9 33.1 512 43 512H82.7c8.5 0 16.6-3.4 22.6-9.4L160 448H288l54.6 54.6c6 6 14.1 9.4 22.6 9.4H405c10 0 15-12.1 7.9-19.1l-46-46c46-7.1 81.1-46.9 81.1-94.9V96c0-53-43-96-96-96H96zM64 96c0-17.7 14.3-32 32-32H352c17.7 0 32 14.3 32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V96zM224 288a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
+      </div> 
+      <div class="col-10">
       <h5 class="card-title"></h5>
-      <h5 class="card-title">Bilhete: {{dados.idPassagem}}</h5>
       <h5 class="card-title">Nome do Comprador: {{nomeUsuario}}</h5>
       <h5 class="card-title">Data da Viagem: {{dadosViagem.dataViagem}}</h5>
       <h5 class="card-title">Origem: {{dadosViagem.origem}}</h5>
       <h5 class="card-title">Destino: {{dadosViagem.destino}}</h5>
-      
+      </div>
     </div>
     {% endif %}
   </div>
 </div>
+
 {% endblock conteudo %}
