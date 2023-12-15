@@ -1,7 +1,10 @@
 {% extends 'global/base.html' %}
+{% load static %}
 {% block conteudo %}
-<div class="container d-flex justify-content-center pt-5">
-    <form style="width:20rem;" action="{% url 'login' %}" method="POST">
+<img src="{% static 'img/imagemTrem.jpg' %}" style="width:100%; height: 100%;position:absolute; " alt="">
+<div class="container d-flex justify-content-center pt-5 position-relative">
+    
+    <form style="width:24rem; background-color: rgba(255, 255, 255, 0.6); padding:10px;  border-radius: 8px;" action="{% url 'login' %}" method="POST">
         {% csrf_token %}
         <div class="mb-3">
             <label for="cpf" class="form-label">Cpf</label>
